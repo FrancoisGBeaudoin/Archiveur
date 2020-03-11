@@ -1,0 +1,30 @@
+##################################################
+#
+#	Widgets
+#
+##################################################
+
+proc selrep {defen existe gind m} {
+
+global gv
+
+	set chrep [tk_chooseDirectory -initialdir "$gv($gind)"\
+ -mustexist $existe -parent $defen -title "Sélection du répertoire"]
+	if {"$chrep" != ""} {
+		set gv($gind) "$chrep"
+	}
+	return
+}
+
+proc selfic {defen muli gind m} {
+
+global gv
+
+	set chfic [tk_getOpenFile -initialdir "$gv($gind)"\
+ -multiple $multi -parent $defen -title "Sélection du fichier"]
+	if {"$chfic" != ""} {
+		set gv($gind) "$chfic"
+	}
+	return
+}
+
